@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>HTML Lesson</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<h2>First Steps</h2>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Getting started
+			</div>
+			<div class="panel-body">
+				<p>Copy and paste this into your file.  These are the fundamental building blocks of a web page: </p>
+				<pre><xmp>
+<!DOCTYPE html>
+
+<html>
+
+</html>
+				</xmp></pre>
+				<ul>
+					<li>&lt;!DOCTYPE html&gt; indicates that this is an html document (rather than an image, or some other web file)</li>
+					<li>&lt;html&gt; indicates the beginning of the html code, and &lt;/html&gt; indicates the end</li>
+				</ul>
+			</div><!--end of panel body-->
+		</div><!--end of panel-->
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Head
+			</div>
+			<div class="panel-body">
+				<p>Copy and paste this between the &lt;html&gt; and &lt;/html&gt;.  This is the head, which contains metadata (invisible information) about your page </p>
+				<pre><xmp>
+	<head>
+		<title>My website</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	</head>
+				</xmp></pre>
+				<ul>
+					<li>&lt;head&gt; and &lt;/head&gt; indicate the start and end of the head</li>
+					<li>&lt;title&gt; and &lt;/title&gt; enclose the title of the page.  This is what you see in the tab at the top of the browser</li>
+					<li>&lt;link ...&gt; allows us to use some third party resources that automatically make spacing easier</li>
+				</ul>
+			</div><!--end of panel body-->
+		</div><!--end of panel-->
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Body
+			</div>
+			<div class="panel-body">
+				<p>Copy and paste this after the &lt;/head&gt; but before the &lt;/html&gt;.  This is the body, which contains all of the visible elements on the page </p>
+				<pre><xmp>
+	<body>
+		Hello, world!
+	</body>
+				</xmp></pre>
+				<ul>
+					<li>&lt;body&gt; and &lt;/body&gt; indicate the start and end of the body</li>
+					<li>"Hello, world!" is the first thing your program says, to make sure it's working :)  We will remove this when we make the actual website</li>
+				</ul>
+			</div><!--end of panel body-->
+		</div><!--end of panel-->
+
+		<h2>Elements</h2>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Divs
+			</div>
+			<div class="panel-body">
+				<p>The first step to building your website is to divide everything into a grid of rectangles.  My example website obviously has three rectangles from top to bottom, but it also has invisible rectangles holding the other pieces of content in place.  First, to make the visible rectangles, I want something like this.  Each div (division) is a colored box.  For this example, erase "Hello, world!" and copy and paste this in:</p>
+				<pre><xmp>
+		<div class="row" style="background-color: rgb(0,0,0); padding: 70px">
+			First rectangle content will go here
+		</div>
+		<div class="row" style="background-color: rgb(22,132,198); padding: 70px">
+			Second rectangle content will go here
+		</div>
+		<div class="row" style="background-color: rgb(83,255,167); padding: 70px">
+			Third rectangle content will go here
+		</div>
+				</xmp></pre>
+				<ul>
+					<li>&lt;div...&gt; and &lt;/div&gt; indicate the start and end of each div</li>
+					<li>class="row" uses that third party resource to make a nice horizontal rectangle that fills the whole width of the page</li>
+					<li>style="..." sets the style of the div
+						<ul>
+							<li>background-color is the background color of the rectangle.  It uses RGB color.  So you just need to say rgb(255,0,0) to set the color to red, rgb(0,255,0) to set the color to green, etc.</li>
+							<li>padding is the amount of extra space around the elements inside the rectangle.  Right now there are no elements inside, so the rectangle will be 140 (two times 70) pixels tall.  It uses the unit pixels, which means labeling with "px"</li>
+						</ul>
+					</li>
+				</ul>
+				<p>Then we need dividers to separate the space inside each visible grid.  We do this by splitting the entire screen into six columns.  Referring to the lines drawn on your paper, figure out how many columns each item needs to take up.  For example, my avatar photo takes up about 5/12 columns, and my name takes up about 7/12 columns.  Then we create invisible container divs to hold these pieces. Vertical divider divs go inside row divs.  For this example, erase "First rectangle content will go here" and copy and paste this in:</p>
+				<pre><xmp>
+			<div class="col-md-5">
+				Avatar will go here
+			</div>
+			<div class="col-md-7">
+				Name will go here
+			</div>
+				</xmp></pre>
+				<ul>
+					<li>class="col-md-5" means that the div will be 5/12 columns wide</li>
+					<li>class="col-md-7" means that the div will be 7/12 columns wide</li>
+				</ul>
+				<p>I also have these dividers for the second rectangle (replace "Second rectangle content will go here"):</p>
+				<pre><xmp>
+			<div class="col-md-4">
+				Game will go here
+			</div>
+			<div class="col-md-8">
+				Paragraph describing game will go here
+			</div>
+				</xmp></pre>
+				<p>And these dividers for the third rectangle (replace "Third rectangle content will go here"):</p>
+				<pre><xmp>
+			<div class="col-md-3">
+			</div>
+			<div class="col-md-6">
+				YouTube video will go here
+			</div>
+			<div class="col-md-3">
+			</div>
+				</xmp></pre>
+			</div><!--end of panel body-->
+		</div><!--end of panel-->
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Text
+			</div>
+			<div class="panel-body">
+				<p>Now that we have our dividers, let's put some stuff in there!  The easiest place to start is text.  I have a title containing my name, and a paragraph describing my game.  For the title, I'm going to use an &lt;h1&gt; tag.  h1 means header 1, which is the largest header.  Then for the paragraph, I'm going to use an &lt;h3&gt; tag, AKA header 3, which is smaller than an &lt;h1&gt; or &lt;h2&gt; tag.  You can also use &lt;h4&gt; and up, or &lt;p&gt; (paragraph) if you want much smaller text, like if you were writing an entire blog entry.</p>
+				<p>First, replace "Name will go here" with this:</p>
+				<pre><xmp>
+				<h1 style="color: rgb(33,217,255); font-size: 100px">
+					Erin
+				</h1>
+				</xmp></pre>
+				<ul>
+					<li>Whereas rectangles have their color set with background-color, text (headers and paragraphs) has its color set with just color.  It uses rgb just the same as background-color</li>
+					<li>Since I want my name to be even more giant than &lt;h1&gt; is by default, I added a font-size attribute to make it 100px.</li>
+				</ul>
+				<p>Second, replace "Paragraph describing game will go here" with this:</p>
+				<pre><xmp>
+				<h3>
+					This is a beautiful paragraph about my game.  My game features an alien space man character, a fence, and some coins.  When you get three coins, you win!  Then the game will restart.  It is very exciting.  There is a wall of grass/dirt blocks at the edge so the alien space man character does not go off the edge into the abyss.  At some point, I will likely add more features to this exciting game!
+				</h3>
+				</xmp></pre>
+			</div><!--end of panel body-->
+		</div><!--end of panel-->
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Embedded content
+			</div>
+			<div class="panel-body">
+				<p>The awesome thing about modern web development is that we can embed content from other places directly into our websites!  Today, I'm going to embed my browser game (from flowlab.io) and a video from YouTube</p>
+				<p>The first step to embedding something is getting the embed code.  For your flowlab.io game, go log in to your flowlab.io profile, and you will notice underneath the Play and Edit buttons there is a box labeled "Embed".  Copy everything in that box, and paste it in place of "Game will go here".  My embed code looks like this:</p>
+				<pre><xmp>
+				<iframe width="320" height="320" src="http://www.flowlab.io/game/embed/216628" frameborder="0" allowfullscreen></iframe>
+				</xmp></pre>
+				<p>Then go to YouTube, find a video you like, and scroll down so you can see the "Share" option immediately below the video.  Click on "Share" and some new options should appear below.  Click on "Embed".  This will also give you a box of code.  Copy everything in that box, and paste it in place of "YouTube video will go here".  My embed code looks like this:</p>
+				<pre><xmp>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/StTqXEQ2l-Y" frameborder="0" allowfullscreen></iframe>
+				</xmp></pre>
+				<ul>
+					<li>src means the source of the embedded window.  So, a flowlab.io game has a source on the flowlab.io website, and a YouTube video has a source on the YouTube website</li>
+				</ul>
+			</div><!--end of panel body-->
+		</div><!--end of panel-->
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Images
+			</div>
+			<div class="panel-body">
+				<p>Last but not least, images are a fun addition to your website.  For today, let's get our "profile" image from this set of cartoon octocats.  What's an octocat, you ask?  A hybrid octopus cat.  It's adorable.  It's also the mascot of GitHub, the internet service I'll be using to publish your websites on the web.  Click <a href="octodex.github.com" target="_blank">>this link</a> to pick one out.  Once you have one you like, right click on it and select "Open Image in New Tab".  The URL that appears in the browser top bar will be the source file for your image.  My image code looks like this (copy and paste this in place of "Avatar will go here"):</p>
+				<pre><xmp>
+				<img src="https://octodex.github.com/images/gracehoppertocat.jpg" style="height: 300px; border-radius: 50%"></img>
+				</xmp></pre>
+				<ul>
+					<li>src means the source of the image, same as how embedded windows have a source</li>
+					<li>I set the height to 300px to get it just how I want it, but if you leave this out, the image will be the original size from the GitHub website.</li>
+					<li>border-radius is what turns this square image into a circle.  Try out some different percentages and see what they do!</li>
+				</ul>
+			</div><!--end of panel body-->
+		</div><!--end of panel-->
+	</body>
+</html>
